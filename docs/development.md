@@ -10,11 +10,11 @@ nvm install v4
 
 ## Fork and Download Repositories
 
-To develop bitcore-node-dash:
+To develop bitcore-node-sparks:
 
 ```bash
 cd ~
-git clone git@github.com:<yourusername>/bitcore-node-dash.git
+git clone git@github.com:<yourusername>/bitcore-node-sparks.git
 git clone git@github.com:<yourusername>/bitcore-lib.git
 ```
 
@@ -48,19 +48,19 @@ brew install zeromq
 ```bash
 cd bitcore-lib
 npm install
-cd ../bitcore-node-dash
+cd ../bitcore-node-sparks
 npm install
 ```
 **Note**: If you get a message about not being able to download bitcoin distribution, you'll need to compile bitcoind from source, and setup your configuration to use that version.
 
 
-We now will setup symlinks in `bitcore-node-dash` *(repeat this for any other modules you're planning on developing)*:
+We now will setup symlinks in `bitcore-node-sparks` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
 rm -rf bitcore-lib
 ln -s ~/bitcore-lib
-rm -rf bitcoind-rpc-dash
-ln -s ~/bitcoind-rpc-dash
+rm -rf bitcoind-rpc-sparks
+ln -s ~/bitcoind-rpc-sparks
 ```
 
 And if you're compiling or developing bitcoin:
@@ -78,7 +78,7 @@ npm install mocha -g
 
 To run all test suites:
 ```bash
-cd bitcore-node-dash
+cd bitcore-node-sparks
 npm run regtest
 npm run test
 ```
@@ -102,11 +102,11 @@ cd ~
 mkdir devnode
 cd devnode
 mkdir node_modules
-touch bitcore-node-dash.json
+touch bitcore-node-sparks.json
 touch package.json
 ```
 
-Edit `bitcore-node-dash.json` with something similar to:
+Edit `bitcore-node-sparks.json` with something similar to:
 ```json
 {
   "network": "livenet",
@@ -114,8 +114,8 @@ Edit `bitcore-node-dash.json` with something similar to:
   "services": [
     "bitcoind",
     "web",
-    "insight-api",
-    "insight-ui",
+    "insight-api-sparks",
+    "insight-ui-sparks",
     "<additional_service>"
   ],
   "servicesConfig": {
@@ -129,16 +129,16 @@ Edit `bitcore-node-dash.json` with something similar to:
 }
 ```
 
-**Note**: To install services [insight-api](https://github.com/bitpay/insight-api) and [insight-ui](https://github.com/bitpay/insight-ui) you'll need to clone the repositories locally.
+**Note**: To install services [insight-api-sparks](https://github.com/bitpay/insight-api-sparks) and [insight-ui-sparks](https://github.com/bitpay/insight-ui-sparks) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
 ln -s ~/bitcore-lib
-ln -s ~/bitcore-node-dash
-ln -s ~/insight-api
-ln -s ~/insight-ui
+ln -s ~/bitcore-node-sparks
+ln -s ~/insight-api-sparks
+ln -s ~/insight-ui-sparks
 ```
 
 Make sure that the `<datadir>/bitcoin.conf` has the necessary settings, for example:
@@ -158,5 +158,5 @@ rpcpassword=local321
 
 From within the `devnode` directory with the configuration file, start the node:
 ```bash
-../bitcore-node-dash/bin/bitcore-node-dash start
+../bitcore-node-sparks/bin/bitcore-node-sparks start
 ```

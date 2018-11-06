@@ -6,22 +6,22 @@ var path = require('path');
 var index = require('..');
 var log = index.log;
 
-var p2p = require('@dashevo/dashcore-p2p');
+var p2p = require('@sparksevo/sparkscore-p2p');
 var Peer = p2p.Peer;
 var Messages = p2p.Messages;
 var chai = require('chai');
-var dashcore = require('@dashevo/dashcore-lib');
-var Transaction = dashcore.Transaction;
-var BN = dashcore.crypto.BN;
+var sparkscore = require('@sparksevo/sparkscore-lib');
+var Transaction = sparkscore.Transaction;
+var BN = sparkscore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
-var dashd;
+var sparksd;
 
 /* jshint unused: false */
 var should = chai.should();
 var assert = chai.assert;
 var sinon = require('sinon');
-var DashdRPC = require('@dashevo/dashd-rpc');
+var sparksdRPC = require('@sparksevo/sparksd-rpc');
 var transactionData = [];
 var blockHashes = [];
 var txs = [];
@@ -29,9 +29,9 @@ var client;
 var messages;
 var peer;
 var coinbasePrivateKey;
-var privateKey = dashcore.PrivateKey();
-var destKey = dashcore.PrivateKey();
-var BufferUtil = dashcore.util.buffer;
+var privateKey = sparkscore.PrivateKey();
+var destKey = sparkscore.PrivateKey();
+var BufferUtil = sparkscore.util.buffer;
 var blocks;
 
 describe('P2P Functionality', function() {
@@ -40,8 +40,8 @@ describe('P2P Functionality', function() {
     this.timeout(200000);
 
     // enable regtest
-    dashcore.Networks.enableRegtest();
-    var regtestNetwork = dashcore.Networks.get('regtest');
+    sparkscore.Networks.enableRegtest();
+    var regtestNetwork = sparkscore.Networks.get('regtest');
     var datadir = __dirname + '/data';
 
     rimraf(datadir + '/regtest', function(err) {
@@ -49,33 +49,33 @@ describe('P2P Functionality', function() {
         throw err;
       }
 
-      dashd = require('../').services.Dash({
+      sparksd = require('../').services.sparks({
         spawn: {
           datadir: datadir,
-          exec: path.resolve(__dirname, process.env.HOME, './.dashcore/data/dashd')
+          exec: path.resolve(__dirname, process.env.HOME, './.sparkscore/data/sparksd')
         },
         node: {
-          network: dashcore.Networks.testnet
+          network: sparkscore.Networks.testnet
         }
       });
 
-      dashd.on('error', function(err) {
+      sparksd.on('error', function(err) {
         log.error('error="%s"', err.message);
       });
 
-      log.info('Waiting for Dash Core to initialize...');
+      log.info('Waiting for sparks Core to initialize...');
 
-      dashd.start(function(err) {
+      sparksd.start(function(err) {
         if (err) {
           throw err;
         }
-        log.info('Dashd started');
+        log.info('sparksd started');
 
-        client = new DashdRPC({
+        client = new sparksdRPC({
           protocol: 'http',
           host: '127.0.0.1',
           port: 30331,
-          user: 'dash',
+          user: 'sparks',
           pass: 'local321',
           rejectUnauthorized: false
         });
@@ -130,11 +130,11 @@ describe('P2P Functionality', function() {
                         throw err;
                       }
                       utxo.privateKeyWIF = privresponse.result;
-                      var tx = dashcore.Transaction();
+                      var tx = sparkscore.Transaction();
                       tx.from(utxo);
                       tx.change(privateKey.toAddress());
                       tx.to(destKey.toAddress(), utxo.amount * 1e8 - 1000);
-                      tx.sign(dashcore.PrivateKey.fromWIF(utxo.privateKeyWIF));
+                      tx.sign(sparkscore.PrivateKey.fromWIF(utxo.privateKeyWIF));
                       txs.push(tx);
                       finished();
                     });
@@ -163,8 +163,8 @@ describe('P2P Functionality', function() {
     this.timeout(20000);
     peer.on('disconnect', function() {
       log.info('Peer disconnected');
-      dashd.node.stopping = true;
-      dashd.stop(function(err, result) {
+      sparksd.node.stopping = true;
+      sparksd.stop(function(err, result) {
         done();
       });
     });
@@ -176,7 +176,7 @@ describe('P2P Functionality', function() {
 
     var usedTxs = {};
 
-    dashd.on('tx', function(buffer) {
+    sparksd.on('tx', function(buffer) {
       var txFromResult = new Transaction().fromBuffer(buffer);
       var tx = usedTxs[txFromResult.id];
       should.exist(tx);

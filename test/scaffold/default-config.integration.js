@@ -6,22 +6,22 @@ var sinon = require('sinon');
 var proxyquire = require('proxyquire');
 
 describe('#defaultConfig', function() {
-  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.dashcore/data/dashd');
+  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.sparkscore/data/sparksd');
 
   it('will return expected configuration', function() {
     var config = JSON.stringify({
       network: 'livenet',
       port: 3001,
       services: [
-        'dashd',
+        'sparksd',
         'web'
       ],
       servicesConfig: {
-        dashd: {
+        sparksd: {
           connect: [{
             rpchost: '127.0.0.1',
             rpcport: 9998,
-            rpcuser: 'dash',
+            rpcuser: 'sparks',
             rpcpassword: 'local321',
             zmqpubrawtx: 'tcp://127.0.0.1:28332'
            }]
@@ -32,7 +32,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.dashcore/dashcore-node.json');
+          path.should.equal(process.env.HOME + '/.sparkscore/sparkscore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -45,29 +45,29 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig();
-    info.path.should.equal(home + '/.dashcore');
+    info.path.should.equal(home + '/.sparkscore');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
-    info.config.services.should.deep.equal(['dashd', 'web']);
-    var dashd = info.config.servicesConfig.dashd;
-    should.exist(dashd);
+    info.config.services.should.deep.equal(['sparksd', 'web']);
+    var sparksd = info.config.servicesConfig.sparksd;
+    should.exist(sparksd);
   });
   it('will include additional services', function() {
     var config = JSON.stringify({
       network: 'livenet',
       port: 3001,
       services: [
-        'dashd',
+        'sparksd',
         'web',
-        'insight-api',
-        'insight-ui'
+        'insight-api-sparks',
+        'insight-ui-sparks'
       ],
       servicesConfig: {
-        dashd: {
+        sparksd: {
           connect: [{
             rpchost: '127.0.0.1',
             rpcport: 9998,
-            rpcuser: 'dash',
+            rpcuser: 'sparks',
             rpcpassword: 'local321',
             zmqpubrawtx: 'tcp://127.0.0.1:28332'
           }]
@@ -78,7 +78,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.dashcore/dashcore-node.json');
+          path.should.equal(process.env.HOME + '/.sparkscore/sparkscore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -91,18 +91,18 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig({
-      additionalServices: ['insight-api', 'insight-ui']
+      additionalServices: ['insight-api-sparks', 'insight-ui-sparks']
     });
-    info.path.should.equal(home + '/.dashcore');
+    info.path.should.equal(home + '/.sparkscore');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal([
-      'dashd',
+      'sparksd',
       'web',
-      'insight-api',
-      'insight-ui'
+      'insight-api-sparks',
+      'insight-ui-sparks'
     ]);
-    var dashd = info.config.servicesConfig.dashd;
-    should.exist(dashd);
+    var sparksd = info.config.servicesConfig.sparksd;
+    should.exist(sparksd);
   });
 });
