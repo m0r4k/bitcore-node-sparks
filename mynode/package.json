@@ -1,0 +1,10 @@
+{
+  "description": "A full Dash node build with Dashcore",
+  "repository": "https://github.com/user/project",
+  "license": "MIT",
+  "readme": "README.md",
+  "dependencies": {
+    "@dashevo/dashcore-lib": "^0.15.6",
+    "@dashevo/dashcore-node": "^4.0.0"
+  }
+}
