@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var sparkscore = require('../lib/cli/sparkscore');
+sparkscore();
