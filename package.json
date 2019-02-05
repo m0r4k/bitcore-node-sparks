@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "benchmark": "1.0.0",
-    "@sparksevo/sparkscore-p2p": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/sparkscore-p2p.git#master",
+    "@sparksevo/sparkscore-p2p": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/sparkscore-p2p.git#development",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
