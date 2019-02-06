@@ -19,8 +19,8 @@ If it doesn't exist, it will create it, with basic task to connect to sparksd.
 
 Some plugins are available :
 
-- Insight-API : `./bin/sparkscore-node addservice @sparksevo/insight-api`
-- Insight-UI : `./bin/sparkscore-node addservice @sparksevo/insight-ui`
+- Insight-API : `./bin/sparkscore-node addservice @sparksevo/insight-api-sparks`
+- Insight-UI : `./bin/sparkscore-node addservice @sparksevo/insight-ui-sparks`
 
 You also might want to add these index to your sparks.conf file :
 ```
@@ -78,8 +78,8 @@ For more information about (and developing) services, please see the [Service Do
 
 There are several add-on services available to extend the functionality of Bitcore:
 
-- [Insight API](https://github.com/sparksevo/insight-api/tree/master)
-- [Insight UI](https://github.com/sparksevo/insight-ui/tree/master)
+- [Insight API](https://github.com/sparksevo/insight-api-sparks/tree/master)
+- [Insight UI](https://github.com/sparksevo/insight-ui-sparks/tree/master)
 - [Bitcore Wallet Service](https://github.com/sparksevo/sparkscore-wallet-service/tree/master)
 
 ## Documentation
@@ -99,24 +99,24 @@ There are several add-on services available to extend the functionality of Bitco
 Prerequisite : Having a sparksd node already runing `sparksd --daemon`.
 
 Sparkscore-node : `git clone https://github.com/sparksevo/sparkscore-node -b develop`
-Insight-api (optional) : `git clone https://github.com/sparksevo/insight-api -b develop`
-Insight-UI (optional) : `git clone https://github.com/sparksevo/insight-ui -b develop`
+Insight-api (optional) : `git clone https://github.com/sparksevo/insight-api-sparks -b develop`
+Insight-UI (optional) : `git clone https://github.com/sparksevo/insight-ui-sparks -b develop`
 
 Install them :
 ```
 cd sparkscore-node && npm install \
- && cd ../insight-ui && npm install \
- && cd ../insight-api && npm install && cd ..
+ && cd ../insight-ui-sparks && npm install \
+ && cd ../insight-api-sparks && npm install && cd ..
 ```
 
 Symbolic linking in parent folder :
 ```
-npm link ../insight-api
-npm link ../insight-ui
+npm link ../insight-api-sparks
+npm link ../insight-ui-sparks
 ```
 
 Start with `./bin/sparkscore-node start` to first generate a ~/.sparkscore/sparkscore-node.json file.
-Append this file with `"@sparksevo/insight-ui"` and `"@sparksevo/insight-api"` in the services array.
+Append this file with `"@sparksevo/insight-ui-sparks"` and `"@sparksevo/insight-api-sparks"` in the services array.
 
 ## Contributing
 

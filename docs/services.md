@@ -22,7 +22,7 @@ Services correspond with a Node.js module as described in 'package.json', for ex
   "dependencies": {
     "bitcore-lib": "^0.13.7",
     "bitcore-node-sparks": "^0.2.0",
-    "insight-api": "^3.0.0"
+    "insight-api-sparks": "^3.0.0"
   }
 }
 ```

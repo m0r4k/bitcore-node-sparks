@@ -59,8 +59,8 @@ describe('#defaultConfig', function() {
       services: [
         'sparksd',
         'web',
-        'insight-api',
-        'insight-ui'
+        'insight-api-sparks',
+        'insight-ui-sparks'
       ],
       servicesConfig: {
         sparksd: {
@@ -91,7 +91,7 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig({
-      additionalServices: ['insight-api', 'insight-ui']
+      additionalServices: ['insight-api-sparks', 'insight-ui-sparks']
     });
     info.path.should.equal(home + '/.sparkscore');
     info.config.network.should.equal('livenet');
@@ -99,8 +99,8 @@ describe('#defaultConfig', function() {
     info.config.services.should.deep.equal([
       'sparksd',
       'web',
-      'insight-api',
-      'insight-ui'
+      'insight-api-sparks',
+      'insight-ui-sparks'
     ]);
     var sparksd = info.config.servicesConfig.sparksd;
     should.exist(sparksd);

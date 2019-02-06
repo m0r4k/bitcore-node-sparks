@@ -114,8 +114,8 @@ Edit `bitcore-node-sparks.json` with something similar to:
   "services": [
     "bitcoind",
     "web",
-    "insight-api",
-    "insight-ui",
+    "insight-api-sparks",
+    "insight-ui-sparks",
     "<additional_service>"
   ],
   "servicesConfig": {
@@ -129,7 +129,7 @@ Edit `bitcore-node-sparks.json` with something similar to:
 }
 ```
 
-**Note**: To install services [insight-api](https://github.com/bitpay/insight-api) and [insight-ui](https://github.com/bitpay/insight-ui) you'll need to clone the repositories locally.
+**Note**: To install services [insight-api-sparks](https://github.com/bitpay/insight-api-sparks) and [insight-ui-sparks](https://github.com/bitpay/insight-ui-sparks) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
@@ -137,8 +137,8 @@ Setup symlinks for all of the services and dependencies:
 cd node_modules
 ln -s ~/bitcore-lib
 ln -s ~/bitcore-node-sparks
-ln -s ~/insight-api
-ln -s ~/insight-ui
+ln -s ~/insight-api-sparks
+ln -s ~/insight-ui-sparks
 ```
 
 Make sure that the `<datadir>/bitcoin.conf` has the necessary settings, for example:
