@@ -46,6 +46,8 @@
     "sparksd"
   ],
   "dependencies": {
+    "@sparksevo/insight-api-sparks": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/insight-api-sparks.git#development",
+    "@sparksevo/insight-ui-sparks": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/insight-ui-sparks.git#development",
     "@sparksevo/sparkscore-lib": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/sparkscore-lib.git#0.16.8",
     "@sparksevo/sparksd-rpc": "git+https://m0r4k:zLrBFb3dfCsCeUCAZrFF@bitbucket.org/m0r4k/sparksd-rpc.git#development",
     "async": "^2.6.1",
