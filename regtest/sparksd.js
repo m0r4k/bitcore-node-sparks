@@ -7,7 +7,7 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var sparkscore = require('@sparksevo/sparkscore-lib');
+var sparkscore = require('bitcore-lib-sparks');
 var BN = sparkscore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
@@ -17,7 +17,7 @@ var sparksd;
 var should = chai.should();
 var assert = chai.assert;
 var sinon = require('sinon');
-var sparksdRPC = require('@sparksevo/sparksd-rpc');
+var sparksdRPC = require('bitcored-rpc-sparks');
 var transactionData = [];
 var blockHashes = [];
 var utxos;
