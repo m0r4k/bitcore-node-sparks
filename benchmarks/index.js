@@ -1,7 +1,7 @@
 'use strict';
 
 var benchmark = require('benchmark');
-var sparksdRPC = require('@sparksevo/sparksd-rpc');
+var sparksdRPC = require('bitcored-rpc-sparks');
 var async = require('async');
 var maxTime = 20;
 

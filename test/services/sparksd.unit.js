@@ -6,7 +6,7 @@ var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 var should = require('chai').should();
 var crypto = require('crypto');
-var sparkscore = require('@sparksevo/sparkscore-lib');
+var sparkscore = require('bitcore-lib-sparks');
 var _ = sparkscore.deps._;
 var sinon = require('sinon');
 var proxyquire = require('proxyquire');
@@ -644,7 +644,7 @@ describe('Sparks Service', function() {
   });
 
   describe('#_wrapRPCError', function() {
-    it('will convert sparksd-rpc object into JavaScript error', function() {
+    it('will convert bitcored-rpc-sparks object into JavaScript error', function() {
       var sparksd = new SparksService(baseConfig);
       var error = sparksd._wrapRPCError({message: 'Test error', code: -1});
       error.should.be.an.instanceof(errors.RPCError);

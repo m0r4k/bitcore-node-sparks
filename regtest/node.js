@@ -9,13 +9,13 @@ var log = index.log;
 log.debug = function() {};
 
 var chai = require('chai');
-var sparkscore = require('@sparksevo/sparkscore-lib');
+var sparkscore = require('bitcore-lib-sparks');
 var rimraf = require('rimraf');
 var node;
 
 var should = chai.should();
 
-var SparksdRPC = require('@sparksevo/sparksd-rpc');
+var SparksdRPC = require('bitcored-rpc-sparks');
 var index = require('..');
 var Transaction = sparkscore.Transaction;
 var SparkscoreNode = index.Node;

@@ -8,7 +8,7 @@ A Sparks full node for building applications and services with Node.js. A node i
 ### As a standalone server
 
 ```bash
-git clone https://github.com/sparksevo/sparkscore-node
+git clone https://github.com/m0r4k/sparkscore-node
 cd sparkscore-node
 npm install
 ./bin/sparkscore-node start
@@ -19,8 +19,8 @@ If it doesn't exist, it will create it, with basic task to connect to sparksd.
 
 Some plugins are available :
 
-- Insight-API : `./bin/sparkscore-node addservice @sparksevo/insight-api-sparks`
-- Insight-UI : `./bin/sparkscore-node addservice @sparksevo/insight-ui-sparks`
+- Insight-API : `./bin/sparkscore-node addservice insight-api-sparks`
+- Insight-UI : `./bin/sparkscore-node addservice insight-ui-sparks`
 
 You also might want to add these index to your sparks.conf file :
 ```
@@ -32,11 +32,11 @@ You also might want to add these index to your sparks.conf file :
 ### As a library
 
 ```bash
-npm install @sparksevo/sparkscore-node
+npm install bitcore-node-sparks
 ```
 
 ```javascript
-const sparkscore = require('@sparksevo/sparkscore-node');
+const sparkscore = require('bitcore-node-sparks');
 const config = require('./sparkscore-node.json');
 
 let node = sparkscore.scaffold.start({ path: "", config: config });
@@ -78,9 +78,9 @@ For more information about (and developing) services, please see the [Service Do
 
 There are several add-on services available to extend the functionality of Bitcore:
 
-- [Insight API](https://github.com/sparksevo/insight-api-sparks/tree/master)
-- [Insight UI](https://github.com/sparksevo/insight-ui-sparks/tree/master)
-- [Bitcore Wallet Service](https://github.com/sparksevo/sparkscore-wallet-service/tree/master)
+- [Insight API](https://github.com/m0r4k/insight-api-sparks/tree/master)
+- [Insight UI](https://github.com/m0r4k/insight-ui-sparks/tree/master)
+- [Bitcore Wallet Service](https://github.com/m0r4k/sparkscore-wallet-service/tree/master)
 
 ## Documentation
 
@@ -98,9 +98,9 @@ There are several add-on services available to extend the functionality of Bitco
 
 Prerequisite : Having a sparksd node already runing `sparksd --daemon`.
 
-Sparkscore-node : `git clone https://github.com/sparksevo/sparkscore-node -b develop`
-Insight-api (optional) : `git clone https://github.com/sparksevo/insight-api-sparks -b develop`
-Insight-UI (optional) : `git clone https://github.com/sparksevo/insight-ui-sparks -b develop`
+Sparkscore-node : `git clone https://github.com/m0r4k/sparkscore-node -b develop`
+Insight-api (optional) : `git clone https://github.com/m0r4k/insight-api-sparks -b develop`
+Insight-UI (optional) : `git clone https://github.com/m0r4k/insight-ui-sparks -b develop`
 
 Install them :
 ```
@@ -116,15 +116,15 @@ npm link ../insight-ui-sparks
 ```
 
 Start with `./bin/sparkscore-node start` to first generate a ~/.sparkscore/sparkscore-node.json file.
-Append this file with `"@sparksevo/insight-ui-sparks"` and `"@sparksevo/insight-api-sparks"` in the services array.
+Append this file with `"insight-ui-sparks"` and `"insight-api-sparks"` in the services array.
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/sparksevo/sparkscore/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/m0r4k/sparkscore/blob/master/CONTRIBUTING.md) file.
 
 ## License
 
-Code released under [the MIT license](https://github.com/sparksevo/sparkscore-node/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/m0r4k/sparkscore-node/blob/master/LICENSE).
 
 Copyright 2016-2018 Sparks Core Group, Inc.
 

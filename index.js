@@ -24,4 +24,4 @@ module.exports.cli.daemon = require('./lib/cli/daemon');
 module.exports.cli.sparkscore = require('./lib/cli/sparkscore');
 module.exports.cli.sparkscored = require('./lib/cli/sparkscored');
 
-module.exports.lib = require('@sparksevo/sparkscore-lib');
+module.exports.lib = require('bitcore-lib-sparks');
