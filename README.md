@@ -18,8 +18,8 @@ If it doesn't exist, it will create it, with basic task to connect to sparksd.
 
 Some plugins are available :
 
-- insight-api-sparks : `./bin/sparkscore-node addservice @sparksevo/insight-api-sparks
-- insight-ui-sparks : `./bin/sparkscore-node addservice @sparksevo/insight-ui-sparks`
+- insight-api-sparks : `./bin/sparkscore-node addservice insight-api-sparks
+- insight-ui-sparks : `./bin/sparkscore-node addservice insight-ui-sparks`
 
 You also might want to add these index to your sparks.conf file :
 ```
@@ -31,11 +31,11 @@ You also might want to add these index to your sparks.conf file :
 ### As a library
 
 ```bash
-npm install @sparksevo/sparkscore-node
+npm install sparkscore-node
 ```
 
 ```javascript
-const sparkscore = require('@sparksevo/sparkscore-node');
+const sparkscore = require('sparkscore-node');
 const config = require('./sparkscore-node.json');
 
 let node = sparkscore.scaffold.start({ path: "", config: config });
@@ -115,7 +115,7 @@ npm link ../insight-ui-sparks
 ```
 
 Start with `./bin/sparkscore-node start` to first generate a ~/.sparkscore/sparkscore-node.json file.
-Append this file with `"@sparksevo/insight-ui-sparks"` and `"@sparksevo/insight-api-sparks"` in the services array.
+Append this file with `"insight-ui-sparks"` and `"insight-api-sparks"` in the services array.
 
 ## Contributing
 

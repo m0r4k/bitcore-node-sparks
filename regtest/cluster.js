@@ -4,9 +4,9 @@ var path = require('path');
 var async = require('async');
 var spawn = require('child_process').spawn;
 
-var sparksdRPC = require('@sparksevo/sparksd-rpc');
+var sparksdRPC = require('bitcored-rpc-sparks');
 var rimraf = require('rimraf');
-var sparkscore = require('@sparksevo/sparkscore-lib');
+var sparkscore = require('bitcore-lib-sparks');
 var chai = require('chai');
 var should = chai.should();
 

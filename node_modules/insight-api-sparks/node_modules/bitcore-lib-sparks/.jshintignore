@@ -1,0 +1,5 @@
+./node_modules/*
+sparkscore-lib.js
+sparkscore-lib.min.js
+./test/*
+./dist/*
