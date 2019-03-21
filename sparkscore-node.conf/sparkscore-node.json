@@ -1,0 +1,16 @@
+{
+  "network": "livenet",
+  "port": 3001,
+  "services": [
+    "sparksd",
+    "web"
+  ],
+  "servicesConfig": {
+    "sparksd": {
+      "spawn": {
+        "datadir": "/home/z3r0/.sparkscore",
+        "exec": "/home/z3r0/.sparkscore/sparksd"
+      }
+    }
+  }
+}
