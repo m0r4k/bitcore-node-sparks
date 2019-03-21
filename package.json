@@ -45,7 +45,7 @@
   "dependencies": {
     "insight-api-sparks": "git+https://github.com/m0r4k/insight-api-sparks.git#development",
     "insight-ui-sparks": "git+https://github.com/m0r4k/insight-ui-sparks.git#development",
-    "bitcore-lib-sparks": "git+https://github.com/m0r4k/bitcore-lib-sparks.git#development",
+    "bitcore-lib-sparks": "git+https://github.com/m0r4k/bitcore-lib-sparks.git#0.16.8",
     "bitcored-rpc-sparks": "git+https://github.com/m0r4k/bitcored-rpc-sparks.git#development",
     "async": "^1.3.0",
     "body-parser": "^1.13.3",
