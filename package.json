@@ -4,10 +4,10 @@
   "author": "BitPay <dev@bitpay.com>",
   "version": "5.0.2",
   "main": "./index.js",
-  "repository": "git://github.com/m0r4k/sparkscore-node.git",
-  "homepage": "https://github.com/m0r4k/sparkscore-node",
+  "repository": "git://github.com/sparkspay/sparkscore-node.git",
+  "homepage": "https://github.com/sparkspay/sparkscore-node",
   "bugs": {
-    "url": "https://github.com/m0r4k/sparkscore-node/issues"
+    "url": "https://github.com/sparkspay/sparkscore-node/issues"
   },
   "contributors": [
     {
@@ -29,18 +29,18 @@
     "check-package:name": "test $(jq -r .name package.json) = $(jq -r .name package-lock.json)",
     "check-package:version": "test $(jq -r .version package.json) = $(jq -r .version package-lock.json)",
     "sparksd_test": "./node_modules/.bin/mocha test/services/sparksd.unit.js",
-    "install-api": "npm install git+https://github.com/m0r4k/insight-api-sparks.git#development",
-    "install-ui": "npm install git+https://github.com/m0r4k/insight-ui-sparks.git#development"
+    "install-api": "npm install git+https://github.com/sparkspay/insight-api-sparks.git#development",
+    "install-ui": "npm install git+https://github.com/sparkspay/insight-ui-sparks.git#development"
   },
   "tags": [
     "sparks",
     "sparksd"
   ],
   "dependencies": {
-    "insight-api-sparks": "git+https://github.com/m0r4k/insight-api-sparks.git#development",
-    "insight-ui-sparks": "git+https://github.com/m0r4k/insight-ui-sparks.git#development",
-    "bitcore-lib-sparks": "git+https://github.com/m0r4k/bitcore-lib-sparks.git#0.16.8",
-    "bitcored-rpc-sparks": "git+https://github.com/m0r4k/bitcored-rpc-sparks.git#development",
+    "insight-api-sparks": "git+https://github.com/sparkspay/insight-api-sparks.git#development",
+    "insight-ui-sparks": "git+https://github.com/sparkspay/insight-ui-sparks.git#development",
+    "bitcore-lib-sparks": "git+https://github.com/sparkspay/bitcore-lib-sparks.git#0.16.8",
+    "bitcored-rpc-sparks": "git+https://github.com/sparkspay/bitcored-rpc-sparks.git#development",
     "async": "^2.6.1",
     "body-parser": "^1.18.3",
     "colors": "^1.3.3",
@@ -61,7 +61,7 @@
     "utf-8-validate": "~5.0.2"
   },
   "devDependencies": {
-    "bitcore-p2p-sparks": "git+https://github.com/m0r4k/bitcore-p2p-sparks.git#development",
+    "bitcore-p2p-sparks": "git+https://github.com/sparkspay/bitcore-p2p-sparks.git#development",
     "benchmark": "2.1.4",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
